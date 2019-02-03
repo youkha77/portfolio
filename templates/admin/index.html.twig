@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block menu %}
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="{{ path("admin") }}">Accueil</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarsExample07">
+                    <ul class="navbar-nav mr-auto">
+                        <ul class="navbar-nav mr-auto">
+
+                            <li class="nav-item dropdown active">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Gestion des articles
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="{{ path('show') }}">Voir les articles</a>
+                                    <a class="dropdown-item" href="{{ path('folio') }}">Ajouter un article</a>
+
+                                </div>
+                            </li>
+
+
+
+                            <li class="nav-item dropdown active">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Gestion des blogs
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="{{ path('showblog') }}">Liste des blogs</a>
+                                    <a class="dropdown-item" href="{{ path('createblog')}}">Ajouter un blog</a>
+
+                                </div>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ path('home') }}" title="retour ver l'accueil">Retour au site</a>
+                            </li>
+                        </ul>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    {% endblock %}
+
+
+
+{% block flash %}   {% endblock %}
+
+
+
+{% block main %}
+
+    <div class="admin"><h1>Bienvenue Administrateur</h1></div>
+    <div><img src="../img/back-end.png" alt="admin"></div>
+
+
+
+
+{% endblock %}
+
+{% block footer %}
+
+
+{% endblock %}

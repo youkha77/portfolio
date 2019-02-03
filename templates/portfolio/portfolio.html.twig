@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Portfolio Voyage{% endblock %}
+
+{% block main %}
+<main class="container">
+       <h1>A la découverte de mes voyages</h1>
+       <hr></hr>
+      
+
+       <div class="card-group row">
+           {% for articles in article %}
+                  <div class="col-4" style="width: 18rem;">
+
+                      <a href="{{ path('portfolio_slug',{slug:articles.slug}) }}">
+
+                     <img class="card-img-top" src="{{ vich_uploader_asset(articles.image, 'imageFile','App\\Entity\\Image') }}" alt="{{articles.image.alt}}">
+
+                      </a>
+                         <div class="card-body">
+                                <h5 class="card-title">{{ articles.titre }}</h5>
+                                <p class="card-text">{{ articles.description }}</p>
+                             <p class="card-text">Parti à l'aventure en : <b>{{ articles.dateVoyage | date('Y') }}</b></p>
+
+
+                         </div>
+                  </div>
+           {% endfor %}
+       </div>
+
+</main>
+
+{% endblock %}

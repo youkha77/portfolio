@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}A propos{% endblock %}
+
+
+
+
+
+{% block main %}
+
+    <video autoplay muted loop class="bgvideo">
+        <source class="d-block w-100" src="{{ asset('img/vid3.mp4') }}" alt="video">
+    </video> 
+
+
+    <section class="container apropos">
+        <article class="row">
+            <div class="col-sm-4"> <img src="../img/moi.jpg" alt="moi"></div>
+
+            <div class="col-sm-8">
+                <h1 class="presentation">Présentation :</h1>
+                <ul class="apropos">
+                    <li>Khai-Way LA</li>
+                    <li>33 Ans</li>
+                    <li>Paris, France</li>
+                    <li>Developpeur Web junior</li>
+                    <li>Passionné de voyage decouverte, cinéma, série, sport en particulier le football</li>
+                    <br>
+                    <li>  Depuis mon premier voyage en 2010 dans mon pays d'origine (Taiwan) je ne cesse de voyager depuis 5 ans,
+                    Le voyage est l'un de mes plus grandes passions, j'essaie de decouvrir le plus de pays, de culture possible,
+                    c'est pour cela que j'ai décidé de vous faire partager ma passion a travers ce portfolio, en vous proposant
+                    de plonger avec moi dans cette univers qui me passionne. N'hesitez pas à laisser des commentaires ou bien a partager
+                    vos suggestions.</li>
+
+                </ul>
+                <a href="{{ path('portfolio')}}" class="btn btn-outline-dark">Acces Portfolio</a>
+            </div>
+
+        
+
+        
+              
+
+
+
+    </section>
+
+
+
+{% endblock %}

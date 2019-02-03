@@ -1,0 +1,51 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}admin{% endblock %}
+
+{% block video %}
+
+{% endblock %}
+
+
+
+{% block flash %}
+    {% for type, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-secondary alert-{{ type }} alert-dismissible fade show container" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}
+
+{% block main %}
+
+    <main class="container">
+        <h1>Liste des Voyages de Khai</h1>
+
+            <div class="card-group row">
+                {% for articles in article %}
+                    <div class="col-4" style="width: 18rem;">
+                        <img class="card-img-top" src="{{ vich_uploader_asset(articles.image, 'imageFile','App\\Entity\\Image') }}" alt="{{articles.image.alt}}">
+
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{ articles.titre }}</h5>
+                            <p class="card-text">{{ articles.description | slice(0,100) }}...</p>
+                            <p class="card-text">Voyage en : {{ articles.dateVoyage | date('Y') }}</p>
+                            <a href="{{ path('edit',{slug: articles.slug }) }}" class="btn btn-warning">Modifier</a>
+                            <a href="{{ path('supp',{slug: articles.slug }) }}" class="btn btn-danger">Supprimer</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+    </main>
+
+{% endblock %}
+{% block footer %}
+
+
+{% endblock %}

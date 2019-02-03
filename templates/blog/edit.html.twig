@@ -1,0 +1,18 @@
+{% extends 'blog/create.html.twig' %}
+
+
+{% block main %}
+
+    <h1>Modifier un Blog </h1>
+    {{ form_start(createForm) }}
+    {{ form_row(createForm.continent) }}
+    {{ form_row(createForm.image) }}
+    {{ form_row(createForm.description) }}
+    {{ form_row(createForm.slug) }}
+    {{ form_row(createForm.gallerieFile) }}
+
+    <input type="submit" value="Modifier" class="btn btn-success">
+    {{ form_end(createForm) }}
+
+
+{% endblock %}

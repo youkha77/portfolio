@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Khai Travel{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/style.css">
+        
+        <link href="https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700" rel="stylesheet">
+    </head>
+    <body>
+
+        {% block menu %}
+            <nav class="navbar navbar-expand-lg navbar-light bg-light position">
+                <div class="container">
+                    <a class="navbar-brand" href="{{ path("home") }}">Accueil</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarsExample07">
+                        <ul class="navbar-nav mr-auto">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{{ path('apropos') }}">A propos</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{{ path('portfolio') }}">Portfolio Voyage</a>
+                                </li>
+                                <li class="nav-item dropdown active">
+                                    <a class="nav-link dropdown-toggle" href="{{ path('showblog') }}" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        Blog
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="{{ path('monblog') }}">Liste des blogs</a>
+                                        <a class="dropdown-item" href="{{ path('europe') }}">Europe</a>
+                                        <a class="dropdown-item" href="{{ path('asie') }}">Asie</a>
+                                        <a class="dropdown-item" href="{{ path('amsud') }}">Amerique du Sud</a>
+                                        <a class="dropdown-item" href="{{ path('amnord') }}">Amerique du Nord</a>
+                                        <a class="dropdown-item" href="{{ path('oceanie') }}">Oceanie</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="/">Contact</a>
+                                </li>
+                            </ul>
+                        </ul>
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item" >
+                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                    <a href="{{ path('fos_user_security_logout') }}">
+                                        <span>Déconnexion</span>
+                                    </a>
+                                    <a href="{{ path('admin') }}">Accès Admin</a>
+                                {% else %}
+                                    <a href="{{ path('fos_user_security_login') }}">
+                                        <span>Connexion</span>
+                                    </a>
+
+                                {% endif %}
+
+                                {% if is_granted('ROLE_ADMIN') %}
+                                {% endif %}
+                            </ul>
+                        </li>
+
+                    </div>
+                </div>
+            </nav>
+
+
+        {% endblock %}
+
+
+        {% block main %}
+
+        {% endblock %}
+
+
+
+
+
+        {% block footer %}
+            <footer class="text-muted">
+                <div class="container">
+                    <p class="float-right">
+                        Mentions légale
+                    </p>
+
+
+
+
+                    <p>Album Khai@copyright, Merci de ne pas télécharger les photos</p>
+
+                </div>
+            </footer>
+
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+
+{% block flash %}
+    {% for type, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-secondary alert-{{ type }} alert-dismissible fade show container" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}
+
+
+{% block main %}
+    <main class="container">
+        <h1>BLOG</h1>
+
+        <div class="card-group row">
+            {% for blogs in blog %}
+                <div class="col-4" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ vich_uploader_asset(blogs.image, 'imageFile','App\\Entity\\Image') }}" alt="{{blogs.image.alt}}">
+
+                    <div class="card-body">
+                        <h5 class="card-title">{{ blogs.continent }}</h5>
+                        <p class="card-text">{{ blogs.description | slice(0,500) }}</p>
+                        <a href="{{ path('editblog',{slug: blogs.slug }) }}" class="btn btn-warning">Modifier</a>
+                        <a href="{{ path('suppblog',{slug: blogs.slug }) }}" class="btn btn-danger">Supprimer</a>
+                        <a href="{{ path('createblog')}}" class="btn btn-primary">Ajouter</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+
+        
+    </main>
+
+
+
+
+
+
+
+{% endblock %}

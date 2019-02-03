@@ -1,0 +1,25 @@
+{% extends 'admin/index.html.twig' %}
+
+
+{% block title %}admin{% endblock %}
+
+
+{% block main %}
+<div class="container">
+    <h1>Ajouter un blog </h1>
+    {{ form_start(createForm) }}
+    {{ form_row(createForm.continent) }}
+    {{ form_row(createForm.image) }}
+    {{ form_row(createForm.description) }}
+    {{ form_row(createForm.slug) }}
+    {{ form_row(createForm.gallerieFile) }}
+
+    <input type="submit" value="Envoyer" class="btn btn-success">
+    {{ form_end(createForm) }}
+</div>
+{% endblock %}
+
+{% block footer %}
+
+
+{% endblock %}
